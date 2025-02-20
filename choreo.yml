@@ -1,0 +1,18 @@
+apiVersion: choreo.dev/v1alpha1
+kind: ComponentConfig
+metadata:
+  name: django-api
+spec:
+  type: Service
+  source:
+    type: Image
+    image: docker.io/your-dockerhub-username/your-django-api:latest
+  ports:
+    - port: 8000
+  env:
+    - name: DJANGO_SECRET_KEY
+      value: "your-secret-key"
+    - name: DEBUG
+      value: "False"
+    - name: ALLOWED_HOSTS
+      value: "your-choreo-app.choreo.dev"
